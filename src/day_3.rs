@@ -32,22 +32,25 @@ fn part_1(input_string: &String) {
     println!("Day 3, Part 1: {}", total_priority);
 }
 
-fn to_set(string: &str) -> HashSet<char> {
-    let mut set: HashSet<char> = HashSet::new();
+fn fill_set(set: &mut HashSet<char>, string: &str) {
     let chars_input = string.chars();
     for c in chars_input {
         set.insert(c);
     }
-    return set;
 }
 
 fn part_2(input_string: &String) {
     let input_array = input_string.split('\n');
     let mut total_priority = 0;
     let mut i = 0;
-    let mut set_array: [HashSet<char>; 3] = [HashSet::new(), HashSet::new(), HashSet::new()];
+    let set_array: [&mut HashSet<char>; 3] = [
+        &mut HashSet::new(),
+        &mut HashSet::new(),
+        &mut HashSet::new(),
+    ];
     for input in input_array {
-        set_array[i] = to_set(input);
+        set_array[i].clear();
+        fill_set(set_array[i], input);
         i += 1;
         if i == 3 {
             i = 0;
