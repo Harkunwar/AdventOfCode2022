@@ -53,6 +53,6 @@ pub fn day_4() {
             overlap_count += 1;
         }
     }
-    println!("Day 3, Part 1: {}", complete_overlap_count);
-    println!("Day 3, Part 2: {}", overlap_count);
+    println!("Day 4, Part 1: {}", complete_overlap_count);
+    println!("Day 4, Part 2: {}", overlap_count);
 }
